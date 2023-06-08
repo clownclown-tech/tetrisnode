@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'slkscr';
+  src: url(slkscr.ttf);
+}
+
+
+
+  body {
+    width: 800px;
+    height: 800px;
+    color: #00491b;
+    background-color: #787878;
+    font-size: 40px;
+    font-family: 'slkscr';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  canvas {
+    box-shadow: #AAAAAA;
+    border: 2px solid #455306;
+  }
+
+
+
+  .game-info {
+    text-align: right;
+    justify-content: right;
+    border: 2px solid #455306;
+    border-left: none;
+    background-color: #9bbc0f;
+    width: 280px;
+    height: 640px;
+  }
+
+  #score #lines #level {
+    margin-bottom: 70px;
+    justify-content: right;
+  }
+
+
+  .flashing-light {
+    margin-bottom: 360px;
+    margin-right: 87px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      box-shadow: 0 0 10px 5px red;
+    }
+  }
+
+  .battery {
+    content: "BATTERY";
+    position: relative;
+    font-size: 8px;
+    font-family: sans-serif;
+    color: #b3b3b3;
+  }
+
+  .overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, rgb(85, 141, 59) 1px, transparent 1px),
+                      linear-gradient(to bottom, black 1px, transparent 1px);
+    background-size: 10px 10px;
+    z-index: 1;
+  }
+
+  /* style for next piece display */
+#next-piece {
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+  height: 180px;
+  margin-top: 20px;
+  border: 2px solid #333;
+}
+
+.next-piece-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #333;
+}

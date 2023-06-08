@@ -1,12 +1,47 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
+
+
+
+
 <html>
-<head>
-  <title>Tetris Game</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <h1>Tetris Game</h1>
-  <canvas id="tetrisCanvas" width="400" height="600"></canvas>
+  <head>
+    <title>Tetris</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <div class="flashing-light"></div>
+
+
+
+
+      <canvas class="overlay" style="background-color:#9bbc0f" width="320" height="640" id="game"></canvas>
+      <div class="overlay game-info" id="game-info">
+        <div class="score">Score <span id="score"><br>0</span></div>
+        <div class="lines">Lines <span id="lines"><br>0</span></div>
+        <div class="level">Level <span id="level"><br>1</span></div>
+
+        <div id="next-piece"></div>
+      </div>
+
+
+  </body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="app.js"> </script>
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
+
+
+
+
+<div style="all: unset;">
   <div>
     <label for="nameInput">Name:</label>
     <input type="text" id="nameInput" />
@@ -19,6 +54,10 @@
 
   <h2>Highscores</h2>
   <ul id="highscoresList"></ul>
+</div>
+
+
+
 
   <script src="script.js"></script>
   <script>

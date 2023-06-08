@@ -10,6 +10,7 @@ db.serialize(() => {
 });
 
 app.use(express.json());
+app.use(express.static('public'));
 
 // Serve the index.html file
 app.get('/', (req, res) => {
