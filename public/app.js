@@ -77,17 +77,20 @@ function getNextTetromino() {
 
   // update next piece display
   if (tetrominoSequence.length > 0) {
-    const nextPieceMatrix = tetrominos[tetrominoSequence[tetrominoSequence.length - 1]];
+    let nextPieceMatrix = tetrominos[tetrominoSequence[tetrominoSequence.length - 1]];
     nextPieceElement.innerHTML = '';
     for (let row = 0; row < nextPieceMatrix.length; row++) {
       for (let col = 0; col < nextPieceMatrix[row].length; col++) {
         if (nextPieceMatrix[row][col]) {
-          const div = document.createElement('div');
+          let div = document.createElement('div');
           div.className = 'next-piece-cell';
-          div.style.backgroundColor = colors[tetrominoSequence[tetrominoSequence.length - 1]];
+          div.style.backgroundColor = 'black';
           nextPieceElement.appendChild(div);
         } else {
-          nextPieceElement.appendChild(document.createElement('div'));
+          let div = document.createElement('div');
+          div.className = 'next-piece-cell';
+          div.style.backgroundColor = 'white';
+          nextPieceElement.appendChild(div);
         }
       }
     }
