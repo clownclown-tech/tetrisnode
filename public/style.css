@@ -64,23 +64,14 @@
     color: #b3b3b3;
   }
 
-  .overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to right, rgb(85, 141, 59) 1px, transparent 1px),
-                      linear-gradient(to bottom, black 1px, transparent 1px);
-    background-size: 10px 10px;
-    z-index: 1;
-  }
 
   /* style for next piece display */
 #next-piece {
   display: flex;
   flex-wrap: wrap;
-  width: 180px;
-  height: 180px;
-  margin-top: 20px;
+  width: 80px;
+  height: 80px;
+  margin-top: 0px;
   border: 2px solid #333;
 }
 
@@ -88,4 +79,26 @@
   width: 20px;
   height: 20px;
   border: 1px solid #333;
+}
+
+
+#tetromino-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.tetromino {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(16, 66, 28);
+}
+
+.black {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(239, 247, 241);
 }

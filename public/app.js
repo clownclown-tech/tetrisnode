@@ -4,9 +4,6 @@ var rotateAudio = new Audio('assets/sfx_tetris_blockrotate.ogg');
 var blockmoveAudio = new Audio('assets/sfx_tetris_blockmove.ogg');
 let lineclearAudio = new Audio('assets/sfx_tetris_lineclear.ogg');
 
-
-
-
 // Get the elements that will display the score, lines, and level
 const scoreElement = document.getElementById("score");
 const linesElement = document.getElementById("lines");
@@ -16,14 +13,12 @@ var score = 0;
 var lines = 0;
 var level = 0;
 
-
 // Update the score, lines, and level based on the current game state
 function updateGameInfo(score, lines, level) {
   scoreElement.textContent = score;
   linesElement.textContent = lines;
   levelElement.textContent = level;
 }
-
 
 
 // Update the game info when a line is cleared
@@ -33,8 +28,6 @@ function changeScores() {
   level = Math.floor(lines / 10) + 1;
   updateGameInfo(score, lines, level);
 }
-
-
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -55,12 +48,6 @@ function generateSequence() {
 }
 
 // get the next tetromino in the sequence
-//app.js
-
-const nextPieceElement = document.getElementById('next-piece');
-
-//app.js
-
 function getNextTetromino() {
   if (tetrominoSequence.length === 0) {
     generateSequence();
@@ -75,27 +62,28 @@ function getNextTetromino() {
   // I starts on row 21 (-1), all others start on row 22 (-2)
   const row = name === 'I' ? -1 : -2;
 
-  // update next piece display
-  if (tetrominoSequence.length > 0) {
-    let nextPieceMatrix = tetrominos[tetrominoSequence[tetrominoSequence.length - 1]];
-    nextPieceElement.innerHTML = '';
-    for (let row = 0; row < nextPieceMatrix.length; row++) {
-      for (let col = 0; col < nextPieceMatrix[row].length; col++) {
-        if (nextPieceMatrix[row][col]) {
-          let div = document.createElement('div');
-          div.className = 'next-piece-cell';
-          div.style.backgroundColor = 'black';
-          nextPieceElement.appendChild(div);
-        } else {
-          let div = document.createElement('div');
-          div.className = 'next-piece-cell';
-          div.style.backgroundColor = 'white';
-          nextPieceElement.appendChild(div);
-        }
+ // for the next piece container
+  var container = document.getElementById("tetromino-container");
+  const tetromino = tetrominos[tetrominoSequence[tetrominoSequence.length - 1]];
+  const numRows = tetromino.length;
+  const numCols = tetromino[0].length;
+
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < numCols; col++) {
+      if (tetromino[row][col] === 1) {
+        const tetrominoDiv = document.createElement('div');
+        tetrominoDiv.className = 'tetromino';
+        tetrominoDiv.style.top = row * 25 + 'px';
+        tetrominoDiv.style.left = col * 25 + 'px';
+        container.appendChild(tetrominoDiv);
+      } else {
+        const blackDiv = document.createElement('div');
+        blackDiv.className = 'black';
+        blackDiv.style.top = row * 25 + 'px';
+        blackDiv.style.left = col * 25 + 'px';
+        container.appendChild(blackDiv);
       }
     }
-  } else {
-    nextPieceElement.innerHTML = '';
   }
 
   return {
@@ -106,8 +94,18 @@ function getNextTetromino() {
   };
 }
 
+
+// // // update next tetramino
+// // // if (tetrominoSequence.length > 0) {
+// // //  console.log(nextPieceMatrix);
+// // // }
+
+
+
+
+
+
 // rotate an NxN matrix 90deg
-// @see https://codereview.stackexchange.com/a/186834
 function rotate(matrix) {
   const N = matrix.length - 1;
   const result = matrix.map((row, i) =>
