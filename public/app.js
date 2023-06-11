@@ -62,29 +62,42 @@ function getNextTetromino() {
   // I starts on row 21 (-1), all others start on row 22 (-2)
   const row = name === 'I' ? -1 : -2;
 
- // for the next piece container
   var container = document.getElementById("tetromino-container");
+  container.innerHTML = "";
   const tetromino = tetrominos[tetrominoSequence[tetrominoSequence.length - 1]];
   const numRows = tetromino.length;
   const numCols = tetromino[0].length;
 
-  for (let row = 0; row < numRows; row++) {
-    for (let col = 0; col < numCols; col++) {
-      if (tetromino[row][col] === 1) {
-        const tetrominoDiv = document.createElement('div');
-        tetrominoDiv.className = 'tetromino';
-        tetrominoDiv.style.top = row * 25 + 'px';
-        tetrominoDiv.style.left = col * 25 + 'px';
-        container.appendChild(tetrominoDiv);
-      } else {
-        const blackDiv = document.createElement('div');
-        blackDiv.className = 'black';
-        blackDiv.style.top = row * 25 + 'px';
-        blackDiv.style.left = col * 25 + 'px';
-        container.appendChild(blackDiv);
+  if (tetrominoSequence.length !== 0) {
+    for (let row = 0; row < numRows; row++) {
+      for (let col = 0; col < numCols; col++) {
+        if (tetromino[row][col] === 1) {
+          const tetrominoDiv = document.createElement('div');
+          tetrominoDiv.className = 'tetromino';
+          tetrominoDiv.style.top = row * 25 + 'px';
+          tetrominoDiv.style.left = col * 25 + 'px';
+          container.appendChild(tetrominoDiv);
+        } else {
+
+          const blackDiv = document.createElement('div');
+          blackDiv.className = 'black';
+          blackDiv.style.top = row * 25 + 'px';
+          blackDiv.style.left = col * 25 + 'px';
+          container.appendChild(blackDiv);
+        }
       }
     }
+  } else {
+    for (let i = 0; i < 16; i++) {
+
+      const blackDiv = document.createElement('div');
+      blackDiv.className = 'black';
+      blackDiv.style.top = i * 25 + 'px';
+      blackDiv.style.left = '0px';
+      container.appendChild(blackDiv);
+    }
   }
+
 
   return {
     name: name,      // name of the piece (L, O, etc.)
@@ -93,6 +106,7 @@ function getNextTetromino() {
     col: col         // current col
   };
 }
+
 
 
 // // // update next tetramino
