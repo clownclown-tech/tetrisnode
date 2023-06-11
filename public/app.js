@@ -38,7 +38,7 @@ function getRandomInt(min, max) {
 
 // generate a new tetromino sequence
 function generateSequence() {
-  const sequence = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'];
+  const sequence = ['I', 'J', 'L', 'O', 'S', 'T', 'Z','I', 'J', 'L', 'O', 'S', 'T', 'Z','I', 'J', 'L', 'O', 'S', 'T', 'Z','I', 'J', 'L', 'O', 'S', 'T', 'Z','I', 'J', 'L', 'O', 'S', 'T', 'Z'];
 
   while (sequence.length) {
     const rand = getRandomInt(0, sequence.length - 1);
