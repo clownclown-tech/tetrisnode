@@ -8,22 +8,23 @@
   </head>
 
   <body>
-
+    <div>
       <div class="flashing-light"></div>
+      <div class="battery"><p>BATTERY</p></div>
+
+    </div>
 
 
 
 
       <canvas class="overlay" style="background-color:#9bbc0f" width="320" height="640" id="game"></canvas>
       <div class="overlay game-info" id="game-info">
+
         <div class="score">Score <span id="score"><br>0</span></div>
         <div class="lines">Lines <span id="lines"><br>0</span></div>
         <div class="level">Level <span id="level"><br>1</span></div>
 
-        <div id="tetromino-container">
-
-
-        </div>
+        <div id="tetromino-container"></div>
 
       </div>
 
@@ -32,33 +33,38 @@
   </body>
 </html>
 
+
+
+
+
+  <div id="hscore">
+    <div>
+      <h3>Highscores</h3>
+      <ul id="highscoresList"></ul>
+    </div>
+
+
+
+    <div>
+      <label for="nameInput">Name:</label>
+      <input type="text" id="nameInput" />
+    </div>
+
+    <div>
+      <label for="scoreInput">Highscore:</label>
+      <input type="number" id="scoreInput" />
+      <button id="submitBtn">Submit Highscore</button>
+    </div>
+
+  </div>
+
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="app.js"> </script>
-<style>
-  body {
-    overflow: hidden;
-  }
-</style>
-
-
-
-
-<div style="all: unset;">
-  <div>
-    <label for="nameInput">Name:</label>
-    <input type="text" id="nameInput" />
-  </div>
-  <div>
-    <label for="scoreInput">Highscore:</label>
-    <input type="number" id="scoreInput" />
-  </div>
-  <button id="submitBtn">Submit Highscore</button>
-
-  <h2>Highscores</h2>
-  <ul id="highscoresList"></ul>
-</div>
-
-
 
 
   <script>
