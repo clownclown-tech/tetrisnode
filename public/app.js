@@ -20,6 +20,28 @@ function updateGameInfo(score, lines, level) {
   levelElement.textContent = level;
 }
 
+function loadHighscores() {
+  $.ajax({
+    url: '/highscores',
+    type: 'GET',
+    success: function(response) {
+      var highscores = response;
+
+      // Clear existing highscores
+      $('#highscoresList').empty();
+
+      // Add each highscore to the list
+      highscores.forEach(function(score) {
+        var listItem = $('<li>').text(score.playerName + ': ' + score.score);
+        $('#highscoresList').append(listItem);
+      });
+    },
+    error: function(error) {
+      console.error(error);
+    }
+  });
+}
+
 function submitHighScore(score) {
   const name = prompt('Congratulations! You got a high score! Please enter your name:');
   if (name) {
@@ -35,7 +57,7 @@ function submitHighScore(score) {
       contentType: 'application/json',
       success: function(response) {
         console.log(response);
-        // loadHighscores();
+        loadHighscores();
       },
       error: function(error) {
         console.error(error);
