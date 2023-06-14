@@ -20,7 +20,29 @@ function updateGameInfo(score, lines, level) {
   levelElement.textContent = level;
 }
 
+function submitHighScore(score) {
+  const name = prompt('Congratulations! You got a high score! Please enter your name:');
+  if (name) {
+    const highscore = {
+      playerName: name,
+      score: score
+    };
 
+    $.ajax({
+      url: '/highscore',
+      type: 'POST',
+      data: JSON.stringify(highscore),
+      contentType: 'application/json',
+      success: function(response) {
+        console.log(response);
+        // loadHighscores();
+      },
+      error: function(error) {
+        console.error(error);
+      }
+    });
+  }
+}
 // Update the game info when a line is cleared
 function changeScores() {
   lines++;
@@ -200,6 +222,7 @@ function showGameOver() {
   context.textBaseline = 'middle';
   context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
   themeAudio.pause();
+  submitHighScore(score);
 }
 
 const canvas = document.getElementById('game');
