@@ -29,12 +29,12 @@ function loadHighscores() {
 
       // Clear existing highscores
       $('#highscoresList').empty();
-      let counter = 0
+      let counter = 1
 
       // Add each highscore to the list
       highscores.forEach(function(score) {
-        if (counter < 10) {
-        var listItem = $('<li>').text(score.playerName + ': ' + score.score);
+        if (counter < 11) {
+        var listItem = $('<li>').text("#" + counter + "  " + score.playerName + '_' + score.score);
         $('#highscoresList').append(listItem);
         counter++;
         }
