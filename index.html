@@ -49,16 +49,7 @@
 
 
     <ul id="highscoresList"></ul>
-    <div>
-      <label for="nameInput">Name:</label>
-      <input type="text" id="nameInput" />
-    </div>
 
-    <div>
-      <label for="scoreInput">Highscore:</label>
-      <input type="number" id="scoreInput" />
-      <button id="submitBtn">Submit Highscore</button>
-    </div>
 
   </div>
 
@@ -70,66 +61,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="app.js"> </script>
 
-
-  <script>
-    $(document).ready(function() {
-      // Your Tetris game logic goes here
-
-      // Example AJAX request to submit high score
-      $('#submitBtn').on('click', function() {
-        var name = $('#nameInput').val();
-        var score = parseInt($('#scoreInput').val());
-
-        if (name && score) {
-          var highscore = {
-            playerName: name,
-            score: score
-          };
-
-          $.ajax({
-            url: '/highscore',
-            type: 'POST',
-            data: JSON.stringify(highscore),
-            contentType: 'application/json',
-            success: function(response) {
-              console.log(response);
-              loadHighscores();
-            },
-            error: function(error) {
-              console.error(error);
-            }
-          });
-        } else {
-          alert('Please enter a name and a highscore number.');
-        }
-      });
-
-      // Function to load highscores
-      function loadHighscores() {
-        $.ajax({
-          url: '/highscores',
-          type: 'GET',
-          success: function(response) {
-            var highscores = response;
-
-            // Clear existing highscores
-            $('#highscoresList').empty();
-
-            // Add each highscore to the list
-            highscores.forEach(function(score) {
-              var listItem = $('<li>').text(score.playerName + ': ' + score.score);
-              $('#highscoresList').append(listItem);
-            });
-          },
-          error: function(error) {
-            console.error(error);
-          }
-        });
-      }
-
-      // Load highscores on page load
-      loadHighscores();
-    });
-  </script>
 </body>
 </html>

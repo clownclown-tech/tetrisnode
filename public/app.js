@@ -29,13 +29,18 @@ function loadHighscores() {
 
       // Clear existing highscores
       $('#highscoresList').empty();
+      let counter = 0
 
       // Add each highscore to the list
       highscores.forEach(function(score) {
+        if (counter < 10) {
         var listItem = $('<li>').text(score.playerName + ': ' + score.score);
         $('#highscoresList').append(listItem);
+        counter++;
+        }
       });
     },
+
     error: function(error) {
       console.error(error);
     }
@@ -329,6 +334,7 @@ function loop() {
   rAF = requestAnimationFrame(loop);
   context.clearRect(0,0,canvas.width,canvas.height);
   themeAudio.play();
+  loadHighscores();
 
 
   // draw the playfield
