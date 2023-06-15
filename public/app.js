@@ -34,7 +34,11 @@ function loadHighscores() {
       // Add each highscore to the list
       highscores.forEach(function(score) {
         if (counter < 11) {
-        var listItem = $('<li>').text("#" + counter + "  " + score.playerName + '_' + score.score);
+        var listItem = $('<li>').text("#" + counter + "  " + score.playerName + '  ' + score.score);
+
+
+        // listItem.css('text-align-last', 'justify');
+
         $('#highscoresList').append(listItem);
         counter++;
         }
@@ -155,15 +159,6 @@ function getNextTetromino() {
     col: col         // current col
   };
 }
-
-
-
-// // // update next tetramino
-// // // if (tetrominoSequence.length > 0) {
-// // //  console.log(nextPieceMatrix);
-// // // }
-
-
 
 
 
@@ -354,7 +349,7 @@ function loop() {
   if (tetromino) {
 
     // tetromino falls every 35 frames
-    if (++count > 35) {
+    if (++count > 40) {
       tetromino.row++;
       count = 0;
 
