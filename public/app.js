@@ -34,7 +34,18 @@ function loadHighscores() {
       // Add each highscore to the list
       highscores.forEach(function(score) {
         if (counter < 11) {
-        var listItem = $('<li>').text("#" + counter + "  " + score.playerName + '  ' + score.score);
+          var listItem = $('<li>')
+            .text("#" + counter + " " + score.playerName)
+            .css('display', 'flex')
+            .css('justify-content', 'space-between');
+
+          var scoreSpan = $('<span>')
+            .text(score.score)
+            .css('margin-left', '60px'); // Adjust the width as needed
+
+          listItem.append(scoreSpan);
+
+
 
 
         // listItem.css('text-align-last', 'justify');
@@ -52,8 +63,8 @@ function loadHighscores() {
 }
 
 function submitHighScore(score) {
-  const name = prompt('Congratulations! You got a high score! Please enter your name:');
-  if (name) {
+  const name = prompt('Please enter your name (max. 7 letters) and your highscore will be saved on our server:');
+  if (name && name.length <= 7) {
     const highscore = {
       playerName: name,
       score: score
@@ -74,6 +85,7 @@ function submitHighScore(score) {
     });
   }
 }
+
 // Update the game info when a line is cleared
 function changeScores() {
   lines++;
