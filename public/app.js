@@ -341,7 +341,7 @@ function loop() {
   rAF = requestAnimationFrame(loop);
   context.clearRect(0,0,canvas.width,canvas.height);
   themeAudio.play();
-  loadHighscores();
+  // loadHighscores();
 
 
   // draw the playfield
@@ -432,3 +432,4 @@ document.addEventListener('keydown', function(e) {
 
 // start the game
 rAF = requestAnimationFrame(loop);
+loadHighscores();
