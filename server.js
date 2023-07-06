@@ -4,13 +4,9 @@ const sqlite3 = require('sqlite3').verbose();
 
 const http = require('http');
 
-setInterval(() => {
-  console.log("ping");
-  http.get("https://node-tetris.herokuapp.com/");
-}, 25 * 60 * 1000); // every 25 minutes
 
 
-const db = new sqlite3.Database('highscores.db');
+const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
 
 // Create a highscores table if it doesn't exist
 db.serialize(() => {
