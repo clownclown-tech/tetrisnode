@@ -76,6 +76,7 @@
 
   .underline2 {
     border-bottom: solid 2px purple;
+    margin-bottom: 7px;
   }
 
   .underline {
