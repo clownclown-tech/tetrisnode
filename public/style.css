@@ -7,8 +7,8 @@
 
   body {
     margin-top: 30px;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 400px;
     color: #00491b;
     background-color: #787878;
     font-size: 40px;
@@ -71,20 +71,28 @@
   }
 
   #hscore {
+    font-size: smaller;
     margin-left: 20px;
   }
 
   .underline2 {
+    font-size: 60px;
     border-bottom: solid 2px purple;
     margin-bottom: 7px;
+    font-style: italic;
+    color: white;
+    font-family: sans-serif;
   }
 
   .underline {
+
     margin-left: 40px;
-    margin-top: 2px;
+    margin-top: -40px;
     display: inline-block;
     border-bottom: solid 2px blue;
   }
+
+
 
 
 
