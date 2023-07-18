@@ -9,7 +9,11 @@
   </head>
 
 
-  <body>
+<body>
+
+
+
+  <div class="specialdiv">
     <div>
       <div class="flashing-light"></div>
       <div class="battery"><p>BATTERY</p></div>
@@ -18,8 +22,8 @@
 
 
 
-
       <canvas class="overlay" style="background-color:#9bbc0f" width="320" height="640" id="game"></canvas>
+
       <div class="overlay game-info" id="game-info">
 
         <div class="score">Score <span id="score"><br>0</span></div>
@@ -30,10 +34,23 @@
 
       </div>
 
+        <div id="hscore">
+
+          <div class="underline">
+            <h3 class="underline2">Highscores</h3>
+        </div>
+
+        <ul id="highscoresList"></ul>
+
+      </div>
 
 
 
-  </body>
+
+  </div>
+
+</body>
+
 
 
 </html>
@@ -42,15 +59,7 @@
 
 
 
-  <div id="hscore">
 
-    <div class="underline">
-      <h3 class="underline2">Highscores</h3>
-    </div>
-
-    <ul id="highscoresList"></ul>
-
-  </div>
 
 
 

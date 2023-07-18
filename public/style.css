@@ -3,10 +3,21 @@
   src: url(slkscr.ttf);
 }
 
-
-
   body {
-    /* border: 1px solid red; */
+    display: flex;
+    background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+
+
+
+  }
+
+  .specialdiv {
+    justify-content: center;
+    border-radius: 10px 10px 50px 10px;
+
+    padding: 70px 55px 55px 0px;
     margin-top: 40px;
     color: #00491b;
     background-color: #787878;
@@ -18,7 +29,9 @@
     overflow: hidden;
     background-size: cover;
     position: relative;
-    z-index: 1;
+
+
+
   }
 
 
