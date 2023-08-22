@@ -5,24 +5,10 @@ const sqlite3 = require('sqlite3').verbose();
 const http = require('http');
 
 
-setInterval(() => {
-  console.log("ping");
-  http.get("https://tetris-node.fly.dev");
-}, 5 * 60 * 1000); // every 25 minutes
-
-setInterval(() => {
-  console.log("ping2");
-  http.get("https://barcode-scanner.fly.dev/");
-}, 7 * 60 * 1000); // every 25 minutes
 
 
 
-
-
-
-
-
-
+// const db = new sqlite3.Database("production.sqlite");
 const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
 
 // Create a highscores table if it doesn't exist
