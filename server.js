@@ -2,7 +2,27 @@ const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
 
-const http = require('http');
+const https = require('https');
+
+
+
+setInterval(() => {
+  console.log("ping");
+  https.get("https://tetris-node.fly.dev");
+}, 4 * 60 * 1000);
+
+setInterval(() => {
+  console.log("ping2");
+  https.get("https://rent-a-bike.fly.dev");
+}, 6 * 60 * 1000);
+
+setInterval(() => {
+  console.log("ping3");
+  https.get("https://plain-scanner.fly.dev");
+}, 5 * 60 * 1000);
+
+
+
 
 
 
