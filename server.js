@@ -9,7 +9,7 @@ const https = require('https');
 setInterval(() => {
   console.log("ping");
   https.get("https://tetris-node.fly.dev");
-}, 4 * 60 * 1000);
+}, 1 * 60 * 1000);
 
 setInterval(() => {
   console.log("ping2");
