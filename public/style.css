@@ -8,6 +8,9 @@
     background-color: #629be0;
     overflow-x: hidden; /* Verhindert horizontales Scrollen */
     overflow-y: hidden; /* Verhindert vertikales Scrollen */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .gameboy-body {

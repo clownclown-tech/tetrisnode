@@ -28,8 +28,8 @@ setInterval(() => {
 
 
 
-// const db = new sqlite3.Database("production.sqlite");
-const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
+const db = new sqlite3.Database("production.sqlite");
+// const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
 
 // Create a highscores table if it doesn't exist
 db.serialize(() => {
