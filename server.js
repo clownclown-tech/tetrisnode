@@ -14,12 +14,18 @@ setInterval(() => {
 setInterval(() => {
   console.log("ping2");
   https.get("https://rent-a-bike.fly.dev");
-}, 6 * 60 * 1000);
+}, 3 * 60 * 1000);
 
 setInterval(() => {
   console.log("ping3");
   https.get("https://plain-scanner.fly.dev");
-}, 5 * 60 * 1000);
+}, 3 * 60 * 1000);
+
+
+setInterval(() => {
+  console.log("ping3");
+  https.get("https://medicalappointmentapp.fly.dev");
+}, 2 * 60 * 1000);
 
 
 
@@ -28,8 +34,10 @@ setInterval(() => {
 
 
 
-// const db = new sqlite3.Database("production.sqlite");
-const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
+
+
+const db = new sqlite3.Database("production.sqlite");
+// const db = new sqlite3.Database("/mnt/highscores/production.sqlite");
 
 // Create a highscores table if it doesn't exist
 db.serialize(() => {
