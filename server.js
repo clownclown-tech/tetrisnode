@@ -9,23 +9,23 @@ const https = require('https');
 setInterval(() => {
   console.log("ping");
   https.get("https://tetris-node.fly.dev");
-}, 1 * 60 * 1000);
+}, 3 * 60 * 1000);
 
 setInterval(() => {
   console.log("ping2");
   https.get("https://rent-a-bike.fly.dev");
-}, 3 * 60 * 1000);
+}, 4 * 60 * 1000);
 
 setInterval(() => {
   console.log("ping3");
   https.get("https://plain-scanner.fly.dev");
-}, 3 * 60 * 1000);
+}, 4 * 60 * 1000);
 
 
-setInterval(() => {
-  console.log("ping3");
-  https.get("https://medicalappointmentapp.fly.dev");
-}, 2 * 60 * 1000);
+// setInterval(() => {
+//   console.log("ping3");
+//   https.get("https://medicalappointmentapp.fly.dev");
+// }, 2 * 60 * 1000);
 
 
 
